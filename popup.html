@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Job Lens AI</title>
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 12px; width: 360px; }
+      h1 { font-size: 16px; margin: 0 0 8px; }
+      p { margin: 6px 0; font-size: 12px; color: #555; }
+      button { width: 100%; padding: 10px; border: 0; border-radius: 8px; background: #111; color: #fff; cursor: pointer; }
+      button:disabled { opacity: 0.5; cursor: not-allowed; }
+      .row { display: flex; gap: 8px; margin: 8px 0; }
+      .row button { width: auto; flex: 1; }
+      .small { font-size: 11px; color: #666; }
+      .ok { color: #0a7a24; }
+      .err { color: #b42318; }
+
+      .result { background: #f6f6f6; padding: 10px; border-radius: 8px; font-size: 12px; max-height: 420px; overflow: auto; line-height: 1.45; }
+      .item { margin-bottom: 10px; }
+      .label { font-weight: 700; color: #111; display: inline-block; margin-bottom: 4px; }
+      .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-weight: 700; font-size: 11px; margin-left: 6px; }
+      .badge-yes { background: #e8f7ec; color: #117a2d; border: 1px solid #b8e0c2; }
+      .badge-na { background: #fff7e0; color: #8a6d00; border: 1px solid #efdca0; }
+      .badge-no { background: #fdecec; color: #b42318; border: 1px solid #f2b8b5; }
+      .muted { color: #666; }
+      .hr { border-top: 1px solid #e6e6e6; margin: 8px 0; }
+      .empty { color: #777; font-style: italic; }
+      .preline { white-space: pre-wrap; word-break: break-word; }
+      .risk { background: #fdecec; border: 1px solid #f2b8b5; color: #8f1d1d; border-radius: 6px; padding: 6px; }
+    </style>
+  </head>
+  <body>
+    <h1>Job Lens AI</h1>
+    <p>点击后读取当前页面，返回 salary / visa sponsorship，并结合简历做 why company / why role。</p>
+
+    <div class="row">
+      <button id="analyzeBtn">分析当前职位页面</button>
+      <button id="openOptionsBtn">设置</button>
+    </div>
+    <div class="row">
+      <button id="fillFormBtn">检查申请</button>
+    </div>
+
+    <p id="status" class="small"></p>
+    <div id="result" class="result"><span class="empty">等待分析...</span></div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
